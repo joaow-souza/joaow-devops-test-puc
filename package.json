@@ -1,0 +1,23 @@
+{
+  "name": "joaow-devops-test-puc",
+  "version": "1.0.0",
+  "description": "Projeto destinado a realizar atividades somativas",
+  "homepage": "https://github.com/Oaorotti/joaow-devops-test-puc#readme",
+  "bugs": {
+    "url": "https://github.com/Oaorotti/joaow-devops-test-puc/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Oaorotti/joaow-devops-test-puc.git"
+  },
+  "license": "ISC",
+  "author": "joaow",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "fastify": "^5.5.0"
+  }
+}
