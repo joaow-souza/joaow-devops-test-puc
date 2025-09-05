@@ -6,7 +6,6 @@ on:
   pull_request:
     branches: [ "main" ]
 
-# Permissão para criar releases e subir arquivos
 permissions:
   contents: write
 
@@ -31,23 +30,21 @@ jobs:
       - run: npm run build --if-present
       - run: npm test
 
-      # Cria release automática
       - name: Create GitHub Release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: build-${{ github.run_number }}
-          release_name: "Build ${{ github.run_number }}"
+          tag_name: build-${{ github.sha }}
+          release_name: "Build ${{ github.sha }}"
           draft: false
           prerelease: false
 
-      # Faz upload do index.js para a release criada
       - name: Upload index.js to GitHub release
         uses: svenstaro/upload-release-action@2.11.2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: ./index.js
           asset_name: index.js
-          tag: build-${{ github.run_number }}
+          tag: build-${{ github.sha }}
           overwrite: true
