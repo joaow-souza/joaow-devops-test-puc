@@ -29,3 +29,8 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
+    
+    - name: Local Deploy
+      run: |
+        mkdir -p deployed
+        cp -r build/* deployed/ || echo "No build folder"
