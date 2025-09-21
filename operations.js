@@ -14,4 +14,12 @@ function divide(a, b) {
     return a / b;
 }
 
-module.exports = { sum, sub, multiply, divide };
+function evenOrOdd(num) {
+    if (num % 2 === 0) {
+        return 'even';
+    } else {
+        return 'odd';
+    }
+}
+
+module.exports = { sum, sub, multiply, divide, evenOrOdd };

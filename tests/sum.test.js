@@ -1,4 +1,4 @@
-const { sum, sub, multiply, divide } = require('../operations.js');
+const { sum, sub, multiply, divide, evenOrOdd } = require('../operations.js');
 
 test('adds 1 + 2 to equal 3', () => {
   expect(sum(1, 2)).toBe(3);
@@ -14,4 +14,8 @@ test('multiply 5 to 2', () => {
 
 test('divide 5 to 2', () => {
   expect(divide(5, 2)).toBe(2.5);
+});
+
+test('check if ever or odd', () => {
+  expect(evenOrOdd(5)).toBe('odd');
 });
