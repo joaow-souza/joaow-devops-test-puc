@@ -39,3 +39,12 @@ jobs:
           tag: build-${{ github.run_id }}
           overwrite: true
           make_latest: true
+
+      - name: Send Discord Notification
+        if: always() # executa mesmo se o job falhar
+        run: |
+          STATUS=${{ job.status }}
+          curl -H "Content-Type: application/json" \
+               -X POST \
+               -d "{\"content\":\":robot: CI finalizado com status: **${STATUS}** no repositório ${{ github.repository }} (commit: ${{ github.sha }})\"}" \
+               ${{ secrets.DISCORD_WEBHOOK }}
